@@ -1,0 +1,286 @@
+.date-calc-root {
+  min-height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
+  background: #111;
+  color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.date-calc-header {
+  width: 100vw;
+  max-width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 2rem 4vw 1rem 4vw;
+  box-sizing: border-box;
+  background: #181818;
+}
+
+.date-calc-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+  margin: 0;
+}
+
+.date-calc-header h1, .date-calc-header h2, .date-calc-header h2, .date-calc-header h1, .date-calc-header h2, h2 {
+  font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+.lang-btn {
+  background: #252525;
+  color: #fff;
+  border: 1.5px solid #646cff;
+  border-radius: 10px;
+  font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 0.8rem;
+  min-width: 80px;
+  padding: 0.4em 0.8em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+  box-shadow: 0 2px 8px #2224;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+.lang-btn:hover {
+  background-color: #333;
+  border-color: #7f5af0;
+  color: #7f5af0;
+}
+
+.date-calc-card {
+  background: #18181c;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px 0 #000a, 0 1.5px 8px 0 #2228;
+  padding: 2.5rem 2rem 2rem 2rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 420px;
+  width: 100%;
+  gap: 1.5rem;
+  min-height: 480px;
+  box-sizing: border-box;
+}
+
+.date-calc-main {
+  width: 100vw;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding: 3vh 0 0 0;
+}
+
+.input-group {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #bdbdbd;
+  margin-bottom: 0.2rem;
+  min-height: 1.5em;
+}
+
+.react-datepicker__input-container input,
+.custom-datepicker {
+  width: 100%;
+  background-color: #252525;
+  color: #fff;
+  border: 1.5px solid #444;
+  border-radius: 10px;
+  padding: 0.9em 1em;
+  font-size: 1.15rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  text-align: center;
+  letter-spacing: 2px;
+  font-weight: 500;
+  min-height: 48px;
+}
+.react-datepicker__input-container input:focus,
+.custom-datepicker:focus {
+  outline: none;
+  border-color: #646cff;
+  box-shadow: 0 0 0 3px rgba(90, 103, 216, 0.25);
+}
+
+.calc-btn {
+  width: 100%;
+  background-image: linear-gradient(90deg, #646cff 0%, #7f5af0 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.7em 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #2226;
+  transition: background 0.2s, box-shadow 0.2s;
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  min-height: 44px;
+  text-align: center;
+}
+.calc-btn:hover {
+  background-image: linear-gradient(90deg, #535bf2 0%, #7f5af0 100%);
+  box-shadow: 0 4px 16px #646cff44;
+}
+
+.result-fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background: rgba(20,20,20,0.98);
+  border-top: 1.5px solid #333;
+  box-shadow: 0 -2px 16px #000a;
+  padding: 1.5rem 4vw 2.2rem 4vw;
+  text-align: center;
+  width: 100vw;
+  max-width: 100vw;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.result-fixed span {
+  font-size: 1.1rem;
+  color: #aaa;
+}
+
+.result-fixed b {
+  font-size: 2.2rem;
+  color: #fff;
+  margin: 0 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .date-calc-header {
+    width: 90vw;
+    max-width: 90vw;
+    margin: 0 auto 2rem auto;
+    border-radius: 0.8rem;
+  }
+  .date-calc-main {
+    padding-left: 0;
+    padding-right: 0;
+    padding: 1.2rem 0 1.2rem 0;
+    align-items: stretch;
+  }
+  .date-calc-card {
+    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+    max-width: 95vw;
+    width: 95vw;
+    border-radius: 0.8rem;
+    margin: 0 auto;
+    box-shadow: 0 2px 12px #0006;
+    min-height: 420px;
+  }
+  .result-fixed {
+    padding: 1.2rem 1vw 1.8rem 1vw;
+    font-size: 1rem;
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: #111;
+}
+
+/* react-datepicker 深色主题适配 */
+.react-datepicker__input-container input {
+  background: #252525;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 0.8em 1em;
+  font-size: 1.1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  text-align: center;
+  letter-spacing: 2px;
+}
+.react-datepicker__input-container input:focus {
+  outline: none;
+  border-color: #5a67d8;
+  box-shadow: 0 0 0 3px rgba(90, 103, 216, 0.5);
+}
+.react-datepicker {
+  background: #222;
+  border: 1px solid #444;
+  color: #fff;
+  box-shadow: 0 4px 24px #000a;
+}
+.react-datepicker__header {
+  background: #181818;
+  border-bottom: 1px solid #333;
+}
+.react-datepicker__current-month,
+.react-datepicker-time__header,
+.react-datepicker-year-header {
+  color: #fff;
+}
+.react-datepicker__day,
+.react-datepicker__day-name,
+.react-datepicker__time-name {
+  color: #fff;
+}
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background: #646cff;
+  color: #fff;
+}
+.react-datepicker__day--today {
+  border-bottom: 2px solid #7f5af0;
+}
+.react-datepicker__navigation-icon::before {
+  border-color: #fff;
+}
+.react-datepicker__close-icon::after {
+  background-color: #444;
+  color: #fff;
+}
+
+.main-logo {
+  height: 16.9px;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+@media (min-width: 601px) {
+  .main-logo {
+    height: 19.4px;
+  }
+}
