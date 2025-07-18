@@ -1,11 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import './App.css';
-import Select from 'react-select';
-
-const CURRENCIES = [
-  'USD', 'EUR', 'CNY', 'JPY', 'GBP', 'AUD', 'CAD', 'CHF', 'HKD', 'SGD', 'KRW', 'THB', 'RUB', 'INR', 'BRL', 'ZAR'
-];
+import Select, { SingleValue, components, OptionProps, GroupBase } from 'react-select';
 
 const CURRENCY_INFO: Record<string, {en: string, zh: string}> = {
   USD: {
@@ -167,12 +163,6 @@ function App() {
     setRate(null);
   };
 
-  const switchLang = () => {
-    const newLang = i18n.language === 'zh' ? 'en' : 'zh';
-    i18n.changeLanguage(newLang);
-    document.documentElement.lang = newLang;
-  };
-
   useEffect(() => {
     document.documentElement.lang = i18n.language;
   }, [i18n.language]);
@@ -219,17 +209,17 @@ function App() {
                 classNamePrefix="currency-select"
                 options={currencyOptions}
                 value={fromOption}
-                onChange={opt => setFrom(opt?.value || '')}
-                getOptionLabel={opt => opt.label}
-                getOptionValue={opt => opt.value}
-                formatOptionLabel={(opt, { context }) => context === 'menu' ? `${opt.value} - ${currencies.find(c => c.code === opt.value)?.name || ''}` : opt.value}
+                onChange={(opt: SingleValue<{ value: string; label: string }>) => setFrom(opt?.value || '')}
+                getOptionLabel={(opt: { value: string; label: string }) => opt.label}
+                getOptionValue={(opt: { value: string; label: string }) => opt.value}
+                formatOptionLabel={(opt: { value: string; label: string }, { context }: { context: 'menu' | 'value' }) => context === 'menu' ? `${opt.value} - ${currencies.find(c => c.code === opt.value)?.name || ''}` : opt.value}
                 isSearchable={!isMobile}
                 placeholder={t('from')}
                 styles={{
-                  control: (base) => ({ ...base, background: 'rgba(255,255,255,0.10)', color: '#fff', borderRadius: '0.9rem', borderColor: '#91eac9', minHeight: '44px', boxShadow: 'none' }),
-                  singleValue: (base) => ({ ...base, color: '#fff', fontSize: '1.13em', fontWeight: 500 }),
-                  menu: (base) => ({ ...base, background: '#23243a', color: '#fff', zIndex: 10 }),
-                  option: (base, state) => ({ ...base, background: state.isFocused ? '#91eac944' : 'transparent', color: '#fff', fontWeight: state.isSelected ? 700 : 400 }),
+                  control: (base: any) => ({ ...base, background: 'rgba(255,255,255,0.10)', color: '#fff', borderRadius: '0.9rem', borderColor: '#91eac9', minHeight: '44px', boxShadow: 'none' }),
+                  singleValue: (base: any) => ({ ...base, color: '#fff', fontSize: '1.13em', fontWeight: 500 }),
+                  menu: (base: any) => ({ ...base, background: '#23243a', color: '#fff', zIndex: 10 }),
+                  option: (base: any, state: any) => ({ ...base, background: state.isFocused ? '#91eac944' : 'transparent', color: '#fff', fontWeight: state.isSelected ? 700 : 400 }),
                 }}
               />
             </div>
@@ -242,17 +232,17 @@ function App() {
                 classNamePrefix="currency-select"
                 options={currencyOptions}
                 value={toOption}
-                onChange={opt => setTo(opt?.value || '')}
-                getOptionLabel={opt => opt.label}
-                getOptionValue={opt => opt.value}
-                formatOptionLabel={(opt, { context }) => context === 'menu' ? `${opt.value} - ${currencies.find(c => c.code === opt.value)?.name || ''}` : opt.value}
+                onChange={(opt: SingleValue<{ value: string; label: string }>) => setTo(opt?.value || '')}
+                getOptionLabel={(opt: { value: string; label: string }) => opt.label}
+                getOptionValue={(opt: { value: string; label: string }) => opt.value}
+                formatOptionLabel={(opt: { value: string; label: string }, { context }: { context: 'menu' | 'value' }) => context === 'menu' ? `${opt.value} - ${currencies.find(c => c.code === opt.value)?.name || ''}` : opt.value}
                 isSearchable={!isMobile}
                 placeholder={t('to')}
                 styles={{
-                  control: (base) => ({ ...base, background: 'rgba(255,255,255,0.10)', color: '#fff', borderRadius: '0.9rem', borderColor: '#91eac9', minHeight: '44px', boxShadow: 'none' }),
-                  singleValue: (base) => ({ ...base, color: '#fff', fontSize: '1.13em', fontWeight: 500 }),
-                  menu: (base) => ({ ...base, background: '#23243a', color: '#fff', zIndex: 10 }),
-                  option: (base, state) => ({ ...base, background: state.isFocused ? '#91eac944' : 'transparent', color: '#fff', fontWeight: state.isSelected ? 700 : 400 }),
+                  control: (base: any) => ({ ...base, background: 'rgba(255,255,255,0.10)', color: '#fff', borderRadius: '0.9rem', borderColor: '#91eac9', minHeight: '44px', boxShadow: 'none' }),
+                  singleValue: (base: any) => ({ ...base, color: '#fff', fontSize: '1.13em', fontWeight: 500 }),
+                  menu: (base: any) => ({ ...base, background: '#23243a', color: '#fff', zIndex: 10 }),
+                  option: (base: any, state: any) => ({ ...base, background: state.isFocused ? '#91eac944' : 'transparent', color: '#fff', fontWeight: state.isSelected ? 700 : 400 }),
                 }}
               />
             </div>
