@@ -54,6 +54,219 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* AI Currency Converter Styles */
+.ai-currency-root {
+  width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #23243a 0%, #3a3d5c 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: 'Avenir', system-ui, sans-serif;
+}
+
+.ai-currency-main {
+  flex: 1;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 2.2rem;
+  margin-bottom: 30vh;
+}
+
+.ai-currency-header {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.5rem 5rem 1.2rem 5rem;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.ai-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #fff;
+  margin-bottom: 1.2rem;
+  margin-top: 0.5rem;
+  background: linear-gradient(90deg, #7f7fd5 0%, #86a8e7 50%, #91eac9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ai-subtitle {
+  text-align: center;
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: #91eac9;
+  margin-bottom: 1.2rem;
+  margin-top: -0.7rem;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 8px #23243a44;
+}
+
+.ai-card {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  background: rgba(40, 48, 72, 0.55);
+  border-radius: 1.7rem;
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.22), 0 1.5px 12px 0 #7f7fd5cc;
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border: 1.5px solid rgba(127,127,213,0.25);
+  padding: 2.2rem 2rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: stretch;
+  transition: box-shadow 0.3s, transform 0.3s;
+  animation: ai-float 3s ease-in-out infinite alternate;
+}
+@keyframes ai-float {
+  0% { transform: translateY(0px) scale(1);}
+  100% { transform: translateY(-6px) scale(1.012);}
+}
+
+.ai-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.ai-input-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 1.2rem;
+  justify-content: space-between;
+}
+
+.ai-input, .ai-select {
+  border-radius: 0.9rem;
+  border: 1.5px solid #91eac9;
+  padding: 0.8em 1.2em;
+  font-size: 1.13em;
+  background: rgba(255,255,255,0.10);
+  color: #fff;
+  outline: none;
+  box-shadow: 0 2px 12px 0 rgba(127,127,213,0.10) inset, 0 0 0 0 #91eac9;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.ai-input:focus, .ai-select:focus {
+  border-color: #7f7fd5;
+  box-shadow: 0 0 0 3px #91eac966, 0 2px 12px 0 rgba(127,127,213,0.13) inset;
+  background: rgba(145,234,201,0.08);
+}
+
+.ai-switch-btn {
+  background: linear-gradient(90deg, #7f7fd5 0%, #86a8e7 100%);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  font-size: 1.3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px 0 rgba(127,127,213,0.13);
+  transition: background 0.2s, transform 0.2s;
+}
+.ai-switch-btn:hover {
+  background: linear-gradient(90deg, #91eac9 0%, #7f7fd5 100%);
+  transform: rotate(180deg) scale(1.08);
+}
+
+.ai-convert-btn {
+  margin-top: 0.5rem;
+  background: linear-gradient(90deg, #7f7fd5 0%, #86a8e7 50%, #91eac9 100%);
+  color: #fff;
+  border: none;
+  border-radius: 1.3em;
+  padding: 0.9em 1.6em;
+  font-size: 1.13em;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 16px 0 #91eac955, 0 1.5px 8px 0 #7f7fd5cc;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.ai-convert-btn:hover {
+  background: linear-gradient(90deg, #91eac9 0%, #7f7fd5 100%);
+  transform: scale(1.04);
+  box-shadow: 0 4px 24px 0 #91eac988, 0 2px 12px 0 #7f7fd5cc;
+}
+.ai-convert-btn:active::after {
+  content: '';
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 120%; height: 120%;
+  background: radial-gradient(circle, #91eac955 0%, transparent 80%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: ai-btn-ripple 0.4s linear;
+}
+@keyframes ai-btn-ripple {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.ai-rate, .ai-result {
+  margin-top: 1.1rem;
+  font-size: 1.18em;
+  color: #91eac9;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 8px #23243a88;
+}
+
+.ai-result {
+  margin-bottom: 1.5rem;
+}
+
+.ai-result b {
+  color: #ff4d4f;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.ai-error {
+  color: #ff4d4f;
+  background: rgba(255,77,79,0.08);
+  border-radius: 0.7em;
+  padding: 0.5em 1em;
+  text-align: center;
+  margin-top: 0.7em;
+  font-size: 1em;
+}
+
+.currency-info-area {
+  margin-top: 2.2rem;
+  padding: 1.1rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 1rem;
+  background: rgba(255,255,255,0.04);
+  box-shadow: 0 2px 12px 0 rgba(127,127,213,0.06);
+}
+.currency-info {
+  color: #b8ffe6;
+  font-size: 1.02em;
+  margin: 0.5em 0 0.5em 0;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -64,5 +277,56 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media (max-width: 600px) {
+  .ai-currency-root,
+  .ai-currency-main {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+  }
+  .ai-currency-header {
+    width: 90vw !important;
+    max-width: 90vw !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 1.2rem 0 0.7rem 0 !important;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+  }
+  .main-logo {
+    height: 18px !important; /* 原20px，缩小10% */
+    margin-right: 8px !important;
+  }
+  .lang-btn {
+    max-width: 40vw;
+    min-width: 64px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .ai-card {
+    width: 100%;
+    max-width: 92vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.2rem 0.3rem 1rem 0.3rem !important;
+    border-radius: 1.1rem !important;
+    box-sizing: border-box;
+  }
+  .ai-currency-main {
+    margin-top: 1.2rem;
+  }
+  .ai-title {
+    font-size: 1.6rem;
+    margin-top: 1.44rem;
   }
 }
